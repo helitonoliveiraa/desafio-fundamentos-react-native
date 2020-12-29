@@ -5,6 +5,7 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
+import { Alert } from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -19,6 +20,7 @@ interface Product {
 interface CartContext {
   products: Product[];
   addToCart(item: Omit<Product, 'quantity'>): void;
+  removeFromCart(id: string): void;
   increment(id: string): void;
   decrement(id: string): void;
 }
@@ -66,6 +68,21 @@ const CartProvider: React.FC = ({ children }) => {
     [products],
   );
 
+  const removeFromCart = useCallback(
+    async id => {
+      const allProducts = products.filter(product => product.id !== id);
+
+      setProducts(allProducts);
+
+      await AsyncStorage.setItem(
+        '@GoMarketplace:products',
+        JSON.stringify(allProducts),
+      );
+    },
+
+    [products],
+  );
+
   const increment = useCallback(
     async id => {
       // TODO INCREMENTS A PRODUCT QUANTITY IN THE CART
@@ -88,11 +105,16 @@ const CartProvider: React.FC = ({ children }) => {
   const decrement = useCallback(
     async id => {
       // TODO DECREMENTS A PRODUCT QUANTITY IN THE CART
-      const decrementedProducts = products.map(product =>
-        product.id === id
-          ? { ...product, quantity: product.quantity - 1 }
-          : product,
-      );
+      const decrementedProducts = products.map(product => {
+        if (product.id === id && product.quantity > 1) {
+          return { ...product, quantity: product.quantity - 1 };
+        }
+
+        if (product.id === id && product.quantity === 1) {
+          Alert.alert('Pressione em cima do produto que deseja deletar!');
+        }
+        return product;
+      });
 
       setProducts(decrementedProducts);
 
@@ -105,8 +127,8 @@ const CartProvider: React.FC = ({ children }) => {
   );
 
   const value = React.useMemo(
-    () => ({ addToCart, increment, decrement, products }),
-    [products, addToCart, increment, decrement],
+    () => ({ addToCart, removeFromCart, increment, decrement, products }),
+    [products, addToCart, removeFromCart, increment, decrement],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -3,6 +3,8 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import { View } from 'react-native';
 
+import LongPressButton from '../../components/LongPressButton';
+
 import {
   Container,
   ProductContainer,
@@ -75,39 +77,41 @@ const Cart: React.FC = () => {
             height: 80,
           }}
           renderItem={({ item }: { item: Product }) => (
-            <Product>
-              <ProductImage source={{ uri: item.image_url }} />
-              <ProductTitleContainer>
-                <ProductTitle>{item.title}</ProductTitle>
-                <ProductPriceContainer>
-                  <ProductSinglePrice>
-                    {formatValue(item.price)}
-                  </ProductSinglePrice>
+            <LongPressButton id={item.id} title={item.title}>
+              <Product>
+                <ProductImage source={{ uri: item.image_url }} />
+                <ProductTitleContainer>
+                  <ProductTitle>{item.title}</ProductTitle>
+                  <ProductPriceContainer>
+                    <ProductSinglePrice>
+                      {formatValue(item.price)}
+                    </ProductSinglePrice>
 
-                  <TotalContainer>
-                    <ProductQuantity>{`${item.quantity}x`}</ProductQuantity>
+                    <TotalContainer>
+                      <ProductQuantity>{`${item.quantity}x`}</ProductQuantity>
 
-                    <ProductPrice>
-                      {formatValue(item.price * item.quantity)}
-                    </ProductPrice>
-                  </TotalContainer>
-                </ProductPriceContainer>
-              </ProductTitleContainer>
-              <ActionContainer>
-                <ActionButton
-                  testID={`increment-${item.id}`}
-                  onPress={() => handleIncrement(item.id)}
-                >
-                  <FeatherIcon name="plus" color="#E83F5B" size={16} />
-                </ActionButton>
-                <ActionButton
-                  testID={`decrement-${item.id}`}
-                  onPress={() => handleDecrement(item.id)}
-                >
-                  <FeatherIcon name="minus" color="#E83F5B" size={16} />
-                </ActionButton>
-              </ActionContainer>
-            </Product>
+                      <ProductPrice>
+                        {formatValue(item.price * item.quantity)}
+                      </ProductPrice>
+                    </TotalContainer>
+                  </ProductPriceContainer>
+                </ProductTitleContainer>
+                <ActionContainer>
+                  <ActionButton
+                    testID={`increment-${item.id}`}
+                    onPress={() => handleIncrement(item.id)}
+                  >
+                    <FeatherIcon name="plus" color="#E83F5B" size={16} />
+                  </ActionButton>
+                  <ActionButton
+                    testID={`decrement-${item.id}`}
+                    onPress={() => handleDecrement(item.id)}
+                  >
+                    <FeatherIcon name="minus" color="#E83F5B" size={16} />
+                  </ActionButton>
+                </ActionContainer>
+              </Product>
+            </LongPressButton>
           )}
         />
       </ProductContainer>
