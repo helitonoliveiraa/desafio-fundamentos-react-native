@@ -5,11 +5,14 @@ export const Container = styled.View`
   bottom: 0px;
 
   flex-direction: row;
-  background: #e83f5b;
+  background: #232f3e;
 
   padding: 0 20px;
   justify-content: space-between;
   align-items: center;
+
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 `;
 
 export const CartPricing = styled.Text`
@@ -24,7 +27,7 @@ export const CartTotalPrice = styled.Text`
 
 export const CartButton = styled.TouchableOpacity`
   flex-direction: row;
-  background: #e83f5b;
+  background: #232f3e;
 
   flex: 1;
   padding: 20px 20px;

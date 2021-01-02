@@ -2,27 +2,111 @@
   "products": [
     {
       "id": "123",
-      "title": "Nome do produto 01",
+      "title": "T-shirt",
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 50
+      "price": 49.90
     },
     {
       "id": "1234",
-      "title": "Nome do produto 02",
+      "title": "T-shirt Code",
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 60
+      "price": 59.90
     },
     {
       "id": "12345",
-      "title": "Nome do produto 03",
+      "title": "T-shirt Git",
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 70
+      "price": 69.90
     },
     {
       "id": "123456",
-      "title": "Nome do produto 04",
+      "title": "T-shirt push",
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 80
+      "price": 79.90
+    },
+    {
+      "id": "1234567",
+      "title": "Cadeira gamer",
+      "image_url": "https://staticmobly.akamaized.net/p/Mobly-Cadeira-Gamer-Challenger-Cinza-8650-089117-1-zoom.jpg",
+      "price": 120.90
+    },
+    {
+      "id": "1234571",
+      "title": "Cadeira gamer",
+      "image_url": "https://staticmobly.akamaized.net/p/Mobly-Cadeira-Gamer-Challenger-Preta-e-Vermelha-2427-189117-1-catalog.jpg",
+      "price": 220.90
+    },
+    {
+      "id": "1234572",
+      "title": "Cadeira gamer",
+      "image_url": "https://staticmobly.akamaized.net/r/300x300/p/x-689117-1.jpg",
+      "price": 145.90
+    },
+    {
+      "id": "1234573",
+      "title": "Cadeira gamer",
+      "image_url": "https://staticmobly.akamaized.net/r/300x300/p/x-489117-1.jpg",
+      "price": 198.90
+    },
+    {
+      "id": "1234574",
+      "title": "Cadeira gamer",
+      "image_url": "https://staticmobly.akamaized.net/p/Mobly-Cadeira-Gamer-Challenger-Preta-e-Branca-2418-289117-1-catalog.jpg",
+      "price": 359.90
+    },
+    {
+      "id": "1234575",
+      "title": "PC Gamer predator",
+      "image_url": "https://media.pichau.com.br/media/catalog/product/cache/6ee86225acc73f593166d49264424d36/m/o/mortar-intel-gtx_2__1_6.jpg",
+      "price": 7454.00
+    },
+    {
+      "id": "1234576",
+      "title": "PC Gamer future",
+      "image_url": "https://media.pichau.com.br/media/catalog/product/cache/6ee86225acc73f593166d49264424d36/0/1/01_15_4.jpg",
+      "price": 2021.00
+    },
+    {
+      "id": "1234577",
+      "title": "PC Gamer Eros",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/516PV%2B6j1rL._AC_.jpg",
+      "price": 5574.00
+    },
+    {
+      "id": "1234578",
+      "title": "PC Gamer future",
+      "image_url": "https://media.pichau.com.br/media/catalog/product/cache/6ee86225acc73f593166d49264424d36/0/1/01_15_4.jpg",
+      "price": 4454.00
+    },
+    {
+      "id": "1234579",
+      "title": "Phone Gamer Eros",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/41sfjOPwVPL._AC_.jpg",
+      "price": 454.00
+    },
+    {
+      "id": "1234581",
+      "title": "Webcam",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/41UL2oFHqFL._AC_.jpg",
+      "price": 7454.00
+    },
+    {
+      "id": "1234582",
+      "title": "Teclado Gamer future",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/41Pr2OEqoJL._AC_.jpg",
+      "price": 7454.00
+    },
+    {
+      "id": "1234583",
+      "title": "PC Gamer turbo",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/41FdJHgguVL._AC_.jpg",
+      "price": 8000.00
+    },
+    {
+      "id": "1234584",
+      "title": "PC Gamer",
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/41S3Xl%2BIWtL._AC_.jpg",
+      "price": 2454.00
     }
   ]
 }

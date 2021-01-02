@@ -23,12 +23,12 @@ const LongPressButton: React.FC<ButtonProps> = ({
       onHandlerStateChange={({ nativeEvent }) => {
         if (nativeEvent.state === State.ACTIVE) {
           Alert.alert(
-            'Você tem certeza que deseja deletar o produto',
+            'Você tem certeza que deseja deletar o produto ?',
             `${title}`,
             [
               {
                 text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
+                onPress: () => '',
                 style: 'cancel',
               },
               { text: 'OK', onPress: () => removeFromCart(id) },

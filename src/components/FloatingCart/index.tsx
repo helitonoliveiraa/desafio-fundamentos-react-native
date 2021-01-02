@@ -42,7 +42,14 @@ const FloatingCart: React.FC = () => {
   }, [products]);
 
   return (
-    <Container>
+    <Container
+      style={{
+        elevation: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+      }}
+    >
       <CartButton
         testID="navigate-to-cart-button"
         onPress={() => navigation.navigate('Cart')}

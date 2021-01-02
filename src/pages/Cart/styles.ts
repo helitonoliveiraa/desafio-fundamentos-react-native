@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { FlatList } from 'react-native';
 
 interface Product {
@@ -7,6 +7,10 @@ interface Product {
   image_url: string;
   price: number;
   quantity: number;
+}
+
+interface ButtonPros {
+  plus?: boolean;
 }
 
 export const Container = styled.SafeAreaView`
@@ -31,6 +35,8 @@ export const Product = styled.View`
   border-radius: 5px;
   margin: 5px;
   flex-direction: row;
+
+  elevation: 2;
 `;
 
 export const ProductImage = styled.Image`
@@ -67,16 +73,15 @@ export const ProductPrice = styled.Text`
   margin-top: 5px;
 
   font-size: 16px;
-  color: #e83f5b;
+  color: #c45500;
 `;
 
 export const ProductQuantity = styled.Text`
-  font-weight: bold;
   margin-top: 5px;
   margin-right: 10px;
 
   font-size: 16px;
-  color: #e83f5b;
+  color: #c45500;
 `;
 
 export const ActionContainer = styled.View`
@@ -87,36 +92,22 @@ export const ActionContainer = styled.View`
   margin-left: auto;
 `;
 
-export const ActionButton = styled.TouchableOpacity`
-  background: rgba(232, 63, 91, 0.1);
+export const ActionButton = styled.TouchableOpacity<ButtonPros>`
+  background: ${({ plus }) =>
+    plus ? 'rgba(7, 126, 99, 0.1)' : 'rgba(232, 63, 91, 0.1)'};
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 5px;
 `;
 
-export const TotalProductsContainer = styled.View`
-  position: absolute;
-  bottom: 0px;
-
-  flex-direction: row;
-  background: #e83f5b;
-
-  padding: 20px 40px;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const TotalProductsText = styled.Text`
-  font-size: 16px;
-  color: #fff;
-  margin-left: 15px;
-
+export const EmptyBag = styled.View`
   flex: 1;
-  font-weight: bold;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const SubtotalValue = styled.Text`
+export const EmptyBagText = styled.Text`
   font-size: 16px;
-  color: #fff;
-  font-weight: bold;
+  color: #e83f5b;
+  margin-top: 20px;
 `;
