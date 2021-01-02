@@ -98,6 +98,9 @@ $ cd desafio-fundamentos-react-native
 # start o bundle do projeto
 $ yarn start
 
+# rode a API json-server
+$ yarn dev:server
+
 # rode o projeto no emulador
 $ yarn android
 ```
