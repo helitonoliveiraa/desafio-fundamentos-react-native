@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -42,14 +42,7 @@ const FloatingCart: React.FC = () => {
   }, [products]);
 
   return (
-    <Container
-      style={{
-        elevation: 5,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.5,
-      }}
-    >
+    <Container>
       <CartButton
         testID="navigate-to-cart-button"
         onPress={() => navigation.navigate('Cart')}

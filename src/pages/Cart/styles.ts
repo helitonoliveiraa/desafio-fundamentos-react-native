@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
 import { FlatList } from 'react-native';
 
 interface Product {
@@ -29,14 +29,14 @@ export const ProductList = styled(FlatList as new () => FlatList<Product>)`
   padding: 0 10px;
 `;
 
-export const Product = styled.View`
+export const Product = styled.View.attrs({
+  elevation: 2,
+})`
   background: #fff;
   padding: 15px 10px;
   border-radius: 5px;
   margin: 5px;
   flex-direction: row;
-
-  elevation: 2;
 `;
 
 export const ProductImage = styled.Image`
@@ -110,4 +110,32 @@ export const EmptyBagText = styled.Text`
   font-size: 16px;
   color: #e83f5b;
   margin-top: 20px;
+`;
+
+export const TotalProductsContainer = styled.View`
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  flex-direction: row;
+  background: #232f3e;
+  padding: 17px 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+`;
+
+export const TotalProductsText = styled.Text`
+  font-size: 16px;
+  color: #fff;
+  margin-left: 15px;
+  flex: 1;
+  font-weight: bold;
+`;
+
+export const SubtotalValue = styled.Text`
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
 `;

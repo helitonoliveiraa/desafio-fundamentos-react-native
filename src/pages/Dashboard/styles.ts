@@ -29,14 +29,14 @@ export const ProductList = styled(
   padding: 0 10px;
 `;
 
-export const Product = styled.View`
+export const Product = styled.View.attrs({
+  elevation: 2,
+})`
   background: #fff;
   padding: 16px 16px;
   border-radius: 5px;
   margin: 8px;
   flex: 1;
-
-  elevation: 2;
 `;
 
 export const ProductImage = styled.Image`

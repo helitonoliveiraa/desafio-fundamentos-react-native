@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import { View } from 'react-native';
 
 import LongPressButton from '../../components/LongPressButton';
-import FloatingCart from '../../components/FloatingCart';
 
 import {
   Container,
@@ -23,6 +22,9 @@ import {
   ActionButton,
   EmptyBag,
   EmptyBagText,
+  TotalProductsContainer,
+  TotalProductsText,
+  SubtotalValue,
 } from './styles';
 
 import { useCart } from '../../hooks/cart';
@@ -38,7 +40,7 @@ interface Product {
 }
 
 const Cart: React.FC = () => {
-  const { increment, decrement, products } = useCart();
+  const { increment, decrement, products, removeAllFromCart } = useCart();
 
   function handleIncrement(id: string): void {
     increment(id);
@@ -47,6 +49,24 @@ const Cart: React.FC = () => {
   function handleDecrement(id: string): void {
     decrement(id);
   }
+
+  const cartTotal = useMemo(() => {
+    // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
+    const total = products.reduce((accumulator, product) => {
+      return accumulator + product.price * product.quantity;
+    }, 0);
+
+    return formatValue(total);
+  }, [products]);
+
+  const totalItensInCart = useMemo(() => {
+    // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
+    const totalItems = products.reduce((accumulator, product) => {
+      return accumulator + product.quantity;
+    }, 0);
+
+    return totalItems;
+  }, [products]);
 
   return (
     <Container>
@@ -107,7 +127,27 @@ const Cart: React.FC = () => {
         />
       </ProductContainer>
 
-      <FloatingCart />
+      <TotalProductsContainer>
+        <View
+          style={{ alignItems: 'center', flexDirection: 'row', width: 100 }}
+        >
+          <FeatherIcon name="shopping-cart" color="#fff" size={24} />
+          <TotalProductsText>{`${totalItensInCart} itens`}</TotalProductsText>
+        </View>
+
+        <ActionButton
+          onPress={() => removeAllFromCart()}
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '49%',
+            right: '49%',
+          }}
+        >
+          <FeatherIcon name="trash" color="#fff" size={24} />
+        </ActionButton>
+        <SubtotalValue>{cartTotal}</SubtotalValue>
+      </TotalProductsContainer>
     </Container>
   );
 };
